@@ -1,0 +1,18 @@
+extends default
+
+block content
+
+  include templates/nav
+
+  div(class=['ui', 'container', 'grid', 'stackable'])
+    div(class=['ten', 'wide', 'column'])
+      
+      h3(class=['ui', 'header', 'blue'])= 'Bienvenido a Commapp con NodeJS, Semantic, Express, y MySQL'
+      div(style=['width: '+(100)+'%', 'height: '+(400)+'px'])
+        h1(class=['ui', 'header', 'blue'])= 'COMMAPP'
+
+  div(class=['ui', 'container', 'grid', 'stackable'])
+    h2(class=['ui', 'header', 'blue', 'dividing'])= 'Mapa de Comercios'
+    div(id='map')
+
+  

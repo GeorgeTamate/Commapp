@@ -1,0 +1,37 @@
+extends ../default
+
+block content
+
+  include ../templates/nav
+
+  div(class=['ui', 'container', 'grid', 'stackable'])
+    div(class=['sixteen', 'wide', 'column'])
+      
+      h2(class=['ui', 'header', 'blue', 'dividing'])= 'Lista de comercios'
+
+      table(class=['ui', 'table', 'celled'] id='tbl-comercios')
+        thead
+          tr
+            th= 'ID'
+            th= 'Nombre'
+            th= 'Codigo'
+            th= 'Descripcion'
+            th= 'Latitud'
+            th= 'Longitud'
+            th= 'Acciones'
+        tbody
+          each comercio in comercios
+            tr
+              td(id='id_comercio')= comercio.id_comercio
+              td= comercio.nombre
+              td= comercio.codigo
+              td= comercio.descripcion
+              td= comercio.latitud
+              td= comercio.longitud
+              td
+                a(class=['ui button basic icon'] href='#' data-tooltip='Eliminar' data-inverted='' data-position='top center' id='btn-eliminar')
+                  i(class=['trash icon'])
+                a(class=['ui button basic icon'] href='http://localhost:3000/modificar/'+comercio.id_comercio data-tooltip='Modificar' data-inverted='' data-position='top center')
+                  i(class=['write icon'])
+
+  script(src='/javascripts/comercios.js')

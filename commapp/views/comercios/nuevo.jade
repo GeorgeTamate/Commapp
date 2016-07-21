@@ -1,0 +1,40 @@
+extends ../default
+
+block content
+
+  include ../templates/nav
+
+  div(class=['ui', 'container', 'grid', 'stackable'])
+    div(class=['ten', 'wide', 'column'])
+      
+      h2(class=['ui', 'header', 'blue', 'dividing'])= 'Crear comercio'
+
+      div(class='form-nuevocomercio')
+        form(class=['ui', 'form'] action='http://localhost:3000/crearcomercio' method='post')
+          div(class=['ui', 'two','fields'])
+            div(class=['ui', 'field'])
+              label(for='name')= 'Nombre del Comercio'
+              input(type='text' name='nombre' placeholder='Nombre')
+            div(class=['ui', 'field'])
+              label(for='name')= 'Código'
+              input(type='text' name='codigo' placeholder='Código')
+          div(class=['ui', 'field'])
+            label(for='name')= 'Descripción'
+            input(type='text' name='descripcion' placeholder='Descripción')
+          div(class=['ui', 'two','fields'])
+            div(class=['ui', 'field'])
+              label(for='name')= 'Latitud'
+              input(type='text' name='latitud' placeholder='Latitud')
+            div(class=['ui', 'field'])
+              label(for='name')= 'Longitud'
+              input(type='text' name='longitud' placeholder='Longitud')
+          button(class=['ui', 'button', 'basic', 'black'])= 'Crear Comercio'
+          div(class=['ui', 'message', 'error'])
+
+      if info != undefined
+        div(class=['ui', 'message', 'success'])
+          i(class=['close', 'icon'])
+          div(class='header')= 'Comercio registrado.'
+          p= info
+
+  script(src='/javascripts/validacion.js')
